@@ -24,3 +24,7 @@
 
 .card-content {
 }
+
+.hidden {
+  display: none;
+}

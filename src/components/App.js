@@ -1,21 +1,24 @@
 import React from "react";
 import logo from "../assets/logo.svg";
+import "../styles/Reset.css";
 import "../styles/App.css";
 
 // Components
-import Card from "./Card";
+import Deck from "./Deck";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>FlashCard Buddy. Let's get studying.</p>
       </header>
-      <p className="quiz-title">Click to flip card.</p>
-      <Card
-        front="why did the chicken cross the road?"
-        back="to get to the other side"
+      <p className="deck-title">Click to flip card.</p>
+      <Deck
+        questions={{
+          "why did the chicken cross the road?": "to get to the other side",
+          "what did the fox say?": "AWHOOOOOOOO"
+        }}
       />
     </div>
   );
