@@ -1,0 +1,26 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: azure;
+  width: 200px;
+  height: 100px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 15px;
+  transition: all ease-in-out 0.4s;
+  box-sizing: border-box;
+}
+
+.card-front {
+  border: 2px solid aqua;
+}
+
+.card-back {
+  border: 2px solid orangered;
+}
+
+.card-content {
+}
