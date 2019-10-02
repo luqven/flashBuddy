@@ -11,6 +11,12 @@ export default function Deck() {
 
   // hide current question and select next on click
   const handleNext = function(e) {
+    const disabled = e.target.classList.contains("disabled") ? true : false;
+
+    if (disabled) {
+      return;
+    }
+
     setSelected(selected + 1);
     const curCard = document.getElementById("card-" + selected);
     if (curCard) {
@@ -19,6 +25,11 @@ export default function Deck() {
   };
 
   const handlePrev = function(e) {
+    const disabled = e.target.classList.contains("disabled") ? true : false;
+
+    if (disabled) {
+      return;
+    }
     setSelected(selected - 1);
     const curCard = document.getElementById("card-" + selected);
     if (curCard) {
@@ -52,18 +63,20 @@ export default function Deck() {
   return (
     <section className="deck-container">
       <ul className="deck">{deck}</ul>{" "}
-      <button
-        className={`deck-button ${selected === max ? "hidden" : ""}`}
-        onClick={handleNext}
-      >
-        Next card
-      </button>
-      <button
-        className={`deck-button ${selected === 0 ? "hidden" : ""}`}
-        onClick={handlePrev}
-      >
-        Previous card
-      </button>
+      <div className="button-container">
+        <button
+          className={`deck-button ${selected === max ? "disabled" : ""}`}
+          onClick={handleNext}
+        >
+          Next card
+        </button>
+        <button
+          className={`deck-button ${selected === 0 ? "disabled" : ""}`}
+          onClick={handlePrev}
+        >
+          Previous card
+        </button>
+      </div>
     </section>
   );
 }

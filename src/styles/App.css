@@ -2,6 +2,13 @@ ul {
   list-style: none;
 }
 
+button {
+  box-shadow: 0px 0px 2px 1px rgb(1, 49, 60);
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+}
+
 .App {
   text-align: center;
   background-color: #282c34;
@@ -13,7 +20,7 @@ ul {
 }
 
 .App-header {
-  min-height: 50vh;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +33,17 @@ ul {
   color: #09d3ac;
 }
 
+.upload-title {
+  color: aquamarine;
+}
+
 .hidden {
   display: none;
+}
+
+.disabled {
+  background-color: lightsteelblue;
+  box-shadow: none;
+  outline: transparent;
+  cursor: not-allowed;
 }

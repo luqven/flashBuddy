@@ -13,13 +13,14 @@
   margin: auto;
   padding: 20px;
   border-radius: 15px;
-  transition: all ease-in-out 0.6s;
   box-sizing: border-box;
   perspective: 500px;
+  transition: all ease-in-out 0.4s;
 }
 
 .card:hover {
   cursor: pointer;
+  box-shadow: 1px 10px 50px 0px rgba(0, 0, 0, 0.75);
 }
 
 .card-front {
@@ -38,6 +39,9 @@
   top: -10vh;
   transition: ease-in-out color 0.4s;
   color: transparent;
+}
+.card-content:hover {
+  cursor: default;
 }
 
 .transparent {
