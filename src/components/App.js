@@ -1,10 +1,12 @@
 import React from "react";
-import logo from "../assets/logo.svg";
+import QuestionsUploadForm from "./UploadForm";
 import "../styles/Reset.css";
 import "../styles/App.css";
 
 // Components
 import Deck from "./Deck";
+
+const questions = {};
 
 function App() {
   return (
@@ -14,12 +16,9 @@ function App() {
         <p>FlashCard Buddy. Let's get studying.</p>
       </header>
       <p className="deck-title">Click to flip card.</p>
-      <Deck
-        questions={{
-          "why did the chicken cross the road?": "to get to the other side",
-          "what did the fox say?": "AWHOOOOOOOO"
-        }}
-      />
+      <Deck questions={questions} />
+      <br></br>
+      <QuestionsUploadForm questions={questions} />
     </div>
   );
 }

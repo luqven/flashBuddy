@@ -2,21 +2,25 @@ import React, { useState } from "react";
 import Card from "./Card";
 import "../styles/Deck.css";
 
-export default function Deck(props) {
-  const questions = Object.keys(props.questions);
+export default function Deck() {
+  // read the questions object from client storage
+  const questions = JSON.parse(localStorage.getItem("questions") || {});
 
   let [selected, setSelected] = useState(0);
 
+  // hide current question and select next on click
   const handleClick = function(e) {
     e.target.classList.toggle("hidden");
     setSelected((selected + 2) / questions.length);
   };
 
-  const createDeck = function(props) {
+  // store array of cards as li elements
+  const createDeck = function() {
     const deckList = [];
 
-    questions.forEach((curQuestion, idx) => {
-      let curAnswer = props.questions[curQuestion];
+    Object.keys(questions).forEach((key, idx) => {
+      let curQuestion = questions[key].question;
+      let curAnswer = questions[key].answer;
 
       deckList.push(
         <li
@@ -31,7 +35,7 @@ export default function Deck(props) {
     return deckList;
   };
 
-  const deck = createDeck(props);
+  const deck = createDeck();
 
   return (
     <section className="deck-container">
