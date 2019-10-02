@@ -5,13 +5,25 @@ import "../styles/Deck.css";
 export default function Deck() {
   // read the questions object from client storage
   const questions = JSON.parse(localStorage.getItem("questions") || {});
+  const max = Object.keys(questions).length - 1;
 
   let [selected, setSelected] = useState(0);
 
   // hide current question and select next on click
-  const handleClick = function(e) {
-    e.target.classList.toggle("hidden");
-    setSelected((selected + 2) / questions.length);
+  const handleNext = function(e) {
+    setSelected(selected + 1);
+    const curCard = document.getElementById("card-" + selected);
+    if (curCard) {
+      curCard.classList.toggle("hidden");
+    }
+  };
+
+  const handlePrev = function(e) {
+    setSelected(selected - 1);
+    const curCard = document.getElementById("card-" + selected);
+    if (curCard) {
+      curCard.classList.toggle("hidden");
+    }
   };
 
   // store array of cards as li elements
@@ -40,8 +52,17 @@ export default function Deck() {
   return (
     <section className="deck-container">
       <ul className="deck">{deck}</ul>{" "}
-      <button className="deck-button" onClick={handleClick}>
+      <button
+        className={`deck-button ${selected === max ? "hidden" : ""}`}
+        onClick={handleNext}
+      >
         Next card
+      </button>
+      <button
+        className={`deck-button ${selected === 0 ? "hidden" : ""}`}
+        onClick={handlePrev}
+      >
+        Previous card
       </button>
     </section>
   );

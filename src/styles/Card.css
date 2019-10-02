@@ -5,13 +5,20 @@
 
 .card {
   background-color: azure;
-  width: 200px;
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vh;
+  height: 20vh;
   margin: auto;
   padding: 20px;
   border-radius: 15px;
   transition: all ease-in-out 0.4s;
   box-sizing: border-box;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .card-front {
