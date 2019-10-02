@@ -13,8 +13,9 @@
   margin: auto;
   padding: 20px;
   border-radius: 15px;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.6s;
   box-sizing: border-box;
+  perspective: 500px;
 }
 
 .card:hover {
@@ -23,15 +24,26 @@
 
 .card-front {
   border: 2px solid aqua;
+  transform: rotateY(0deg);
 }
 
 .card-back {
+  position: relative;
   border: 2px solid orangered;
+  transform: rotateY(180deg);
 }
 
 .card-content {
+  position: relative;
+  top: -10vh;
+  transition: ease-in-out color 0.4s;
+  color: transparent;
 }
 
-.hidden {
-  display: none;
+.transparent {
+  color: transparent;
+}
+
+.black {
+  color: black;
 }
