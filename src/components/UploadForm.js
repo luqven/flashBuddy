@@ -52,7 +52,7 @@ const Questions = () => {
         Upload new questions CSV to local storage.
       </h1>
       <br></br>
-      <input type="file" name="file" onChange={onChangeHandler} />
+      <input type="file" accept=".csv" name="file" onChange={onChangeHandler} />
     </div>
   );
 };
