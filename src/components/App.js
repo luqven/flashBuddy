@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>FlashCard Buddy. Let's get studying.</p>
+        <p>Flashcard-Buddy. Let's get studying.</p>
       </header>
       <p className="deck-title">Click to flip card.</p>
       <Deck questions={questions} />
