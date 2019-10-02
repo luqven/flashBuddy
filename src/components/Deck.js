@@ -65,16 +65,16 @@ export default function Deck() {
       <ul className="deck">{deck}</ul>{" "}
       <div className="button-container">
         <button
-          className={`deck-button ${selected === max ? "disabled" : ""}`}
-          onClick={handleNext}
-        >
-          Next card
-        </button>
-        <button
           className={`deck-button ${selected === 0 ? "disabled" : ""}`}
           onClick={handlePrev}
         >
           Previous card
+        </button>
+        <button
+          className={`deck-button ${selected === max ? "disabled" : ""}`}
+          onClick={handleNext}
+        >
+          Next card
         </button>
       </div>
     </section>
