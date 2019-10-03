@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/Form.css";
 
 const Questions = () => {
   let [questions, setQuestions] = useState({});
@@ -52,7 +53,18 @@ const Questions = () => {
         Upload new questions CSV to local storage.
       </h1>
       <br></br>
-      <input type="file" accept=".csv" name="file" onChange={onChangeHandler} />
+      <div>
+        <label className="input-label">
+          <button className="input-btn">upload</button>
+          <input
+            className="input-form"
+            type="file"
+            accept=".csv"
+            name="file"
+            onChange={onChangeHandler}
+          />
+        </label>
+      </div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import "../styles/Deck.css";
 
 export default function Deck() {
   // read the questions object from client storage
-  const questions = JSON.parse(localStorage.getItem("questions") || {});
+  const questions = JSON.parse(localStorage.getItem("questions")) || "";
   const max = Object.keys(questions).length - 1;
 
   let [selected, setSelected] = useState(0);
@@ -60,18 +60,24 @@ export default function Deck() {
 
   const deck = createDeck();
 
+  const emptyDeck = questions.length > 1 ? "" : "hidden";
+
   return (
     <section className="deck-container">
       <ul className="deck">{deck}</ul>{" "}
       <div className="button-container">
         <button
-          className={`deck-button ${selected === 0 ? "disabled" : ""}`}
+          className={`deck-button ${emptyDeck} ${
+            selected === 0 ? "disabled" : ""
+          }`}
           onClick={handlePrev}
         >
           Previous card
         </button>
         <button
-          className={`deck-button ${selected === max ? "disabled" : ""}`}
+          className={`deck-button ${emptyDeck} ${
+            selected === max ? "disabled" : ""
+          }`}
           onClick={handleNext}
         >
           Next card
