@@ -1,6 +1,7 @@
 import React from "react";
 import QuestionsUploadForm from "./UploadForm";
-import WelcomeText from "./WelcomeText";
+import Home from "./Home";
+import { Route } from "react-router-dom";
 import "../styles/Reset.css";
 import "../styles/App.css";
 
@@ -10,14 +11,9 @@ import Deck from "./Deck";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>Flashcard-buddy. Let's get studying.</p>
-      </header>
-      <WelcomeText />
-      <Deck />
-      <br></br>
-      <QuestionsUploadForm />
+      <Route path="/" component={Home} />
+      <Route path="/deck" component={Deck} />
+      <Route exact path="/" component={QuestionsUploadForm} />
     </div>
   );
 }

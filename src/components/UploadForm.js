@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import "../styles/Form.css";
 
-const Questions = () => {
+const Questions = props => {
   let [questions, setQuestions] = useState({});
-
   // prase csv into javascript object
   // source: https://gist.github.com/iwek/7154578
   function csvToObj(csv) {
@@ -42,6 +42,7 @@ const Questions = () => {
       setQuestions((questions = result));
       // save the questions obj as a string to local storage
       localStorage.setItem("questions", JSON.stringify(questions));
+      props.history.push("/deck");
     };
 
     reader.readAsText(file);
@@ -68,4 +69,4 @@ const Questions = () => {
     </div>
   );
 };
-export default Questions;
+export default withRouter(Questions);
