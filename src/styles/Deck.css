@@ -21,3 +21,22 @@
   flex-direction: row;
   margin: 10px;
 }
+
+.button-container svg {
+  fill: white;
+}
+
+.refresh-icon {
+  position: absolute;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 50px;
+  top: 73vh;
+  left: 48vw;
+  height: 40px;
+}
+
+.refresh-icon:hover {
+  cursor: pointer;
+  box-shadow: 1px 10px 50px 0px rgba(0, 0, 0, 0.411);
+}

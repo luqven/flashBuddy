@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import "../styles/Deck.css";
+const icon = require("../assets/refresh.svg");
 
 export default function Deck() {
   // read the questions object from client storage
   const questions = JSON.parse(localStorage.getItem("questions")) || "";
   const max = Object.keys(questions).length - 1;
+
+  //https://icons8.com/icons/set/refresh Refresh icon by Icons8
+  const refreshIcon = max > 0 ? icon : "";
 
   let [selected, setSelected] = useState(0);
 
@@ -82,6 +86,11 @@ export default function Deck() {
         >
           Next card
         </button>
+        <img
+          src={refreshIcon}
+          className={`refresh-icon ${max > 0 ? "" : "hidden"}`}
+          alt="reset"
+        />
       </div>
     </section>
   );
