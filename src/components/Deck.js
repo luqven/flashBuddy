@@ -92,6 +92,7 @@ function Deck(props) {
         >
           Next card
         </button>
+        <span className="refresh-label">Reset deck.</span>
         <img
           onClick={handleReset}
           src={refreshIcon}
