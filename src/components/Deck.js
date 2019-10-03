@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import Card from "./Card";
 import "../styles/Deck.css";
 const icon = require("../assets/refresh.svg");
 
-export default function Deck() {
+function Deck(props) {
   // read the questions object from client storage
   const questions = JSON.parse(localStorage.getItem("questions")) || "";
   const max = Object.keys(questions).length - 1;
@@ -39,6 +40,11 @@ export default function Deck() {
     if (curCard) {
       curCard.classList.toggle("hidden");
     }
+  };
+
+  const handleReset = function(e) {
+    localStorage.removeItem("questions");
+    props.history.push("/");
   };
 
   // store array of cards as li elements
@@ -87,6 +93,7 @@ export default function Deck() {
           Next card
         </button>
         <img
+          onClick={handleReset}
           src={refreshIcon}
           className={`refresh-icon ${max > 0 ? "" : "hidden"}`}
           alt="reset"
@@ -95,3 +102,5 @@ export default function Deck() {
     </section>
   );
 }
+
+export default withRouter(Deck);
